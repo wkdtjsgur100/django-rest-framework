@@ -142,7 +142,7 @@ def action(methods=None, detail=None, url_path=None, url_name=None, **kwargs):
         func.mapping = MethodMapper(func, methods)
 
         func.detail = detail
-        func.url_path = url_path if url_path else func.__name__
+        func.url_path = url_path if url_path else func.__name__.replace('_', '-')
         func.url_name = url_name if url_name else func.__name__.replace('_', '-')
         func.kwargs = kwargs
 
